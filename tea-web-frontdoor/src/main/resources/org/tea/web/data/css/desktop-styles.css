@@ -1,0 +1,268 @@
+/*
+  Global constants
+*/
+@def allLeft 10px;
+@def allTop 10px;
+@def allRight 10px;
+@def allBottom 10px;
+@def afterLogoHeight 20px;
+@def menuPanelHeight 80px;
+@def menuItemHeight 60px;
+@def menuItemWidth 150px;
+@def menuItemSpacing 10px;
+@def afterMenuHeight 0px;
+@def contentMargin 25px;
+@def elementsVSpacing 15px;
+@def elementsHSpacing 10px;
+@def applyFontSize 17px;
+
+/*
+  Root canvas settings
+*/
+#external strong;
+strong
+{
+  font-size: 18px;
+  font-weight: bold;
+  font-variant: small-caps;
+  text-decoration: underline;
+}
+
+@sprite .background
+{
+  gwt-image: "background";
+}
+
+.content
+{
+  margin: contentMargin;
+}
+
+/*
+  Menu panel settings
+*/
+.menuPanel
+{
+  font-family: "Tahoma", "Geneva", sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+@keyframes tabSelection
+{
+  0%    {background: rgba(252,234,187,1);
+         background: linear-gradient(to top, rgba(252,234,187,1) 0%, rgba(252,205,77,1) 44%, rgba(248,181,0,1) 73%, rgba(251,223,147,1) 100%);}
+                
+  50%   {background: rgba(235,233,249,1);
+         background: linear-gradient(to bottom, rgba(235,233,249,1) 0%, rgba(220,213,241,1) 77%, rgba(216,208,239,1) 98%, rgba(193,191,234,1) 100%);}
+           
+  100%  {background: rgba(235,233,249,1);
+         background: linear-gradient(to bottom, rgba(235,233,249,1) 0%, rgba(206,199,236,1) 56%, rgba(193,191,234,1) 75%, rgba(193,191,234,1) 100%);} 
+}
+
+.tabSelected
+{
+  font-family: "Tahoma", "Geneva", sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  
+  color: #0C4152;
+  border-radius: 36px 36px 12px 12px; 
+  -moz-border-radius: 36px 36px 12px 12px; 
+  -webkit-border-radius: 36px 36px 12px 12px; 
+  text-align: center;
+  height: menuItemHeight;
+  line-height: menuItemHeight;
+  width: menuItemWidth;
+  
+  background: rgba(235,233,249,1);
+  background: linear-gradient(to bottom, rgba(235,233,249,1) 0%, rgba(206,199,236,1) 56%, rgba(193,191,234,1) 75%, rgba(193,191,234,1) 100%);
+  
+  animation-name: tabSelection;
+  animation-duration: 0.5s;
+}
+
+.tabUnselected
+{
+  font-family: "Tahoma", "Geneva", sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  width: menuItemWidth;
+  cursor: pointer;
+  
+  color: #0C4152; 
+  border-radius: 36px 36px 12px 12px; 
+  -moz-border-radius: 36px 36px 12px 12px; 
+  -webkit-border-radius: 36px 36px 12px 12px; 
+
+  text-align: center;
+  height: menuItemHeight;
+  line-height: menuItemHeight;
+  
+  background: rgba(252,234,187,1);
+  background: linear-gradient(to top, rgba(252,234,187,1) 0%, rgba(252,205,77,1) 44%, rgba(248,181,0,1) 73%, rgba(251,223,147,1) 100%);
+  
+  animation-name: tabUnselection;
+  animation-duration: 1s;
+  animation-duration: reverse;
+}
+
+/*
+  Welcome tab settings
+*/
+@sprite .backgroundWelcome
+{
+  gwt-image: "backgroundWelcome";
+  border-radius: 10px; 
+  -moz-border-radius: 10px; 
+  -webkit-border-radius: 10px; 
+  border: 2px solid #22C75E;
+}
+
+@external textWelcome, h2Welcome;
+
+.h2Welcome
+{
+  font-family: "lucida sans unicode", "lucida grande", sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+  color: #0C4152;
+}
+
+.textWelcome
+{
+  font-family: "lucida sans unicode", "lucida grande", sans-serif;
+  font-size: 17px;
+  color: #146C87;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-align: justify;
+  letter-spacing: 0px;
+  line-height: 25px;
+}
+
+/*
+  Services tab settings
+*/
+@sprite .backgroundServices
+{
+  gwt-image: "backgroundServices";
+  border-radius: 10px; 
+  -moz-border-radius: 10px; 
+  -webkit-border-radius: 10px; 
+  border: 2px solid #22C75E;
+}
+
+@sprite .backgroundPrograms
+{
+  gwt-image: "backgroundPrograms";
+  border-radius: 10px; 
+  -moz-border-radius: 10px; 
+  -webkit-border-radius: 10px; 
+  border: 2px solid #22C75E;
+}
+
+/*
+  Apply tab settings
+*/
+@sprite .backgroundApply
+{
+  gwt-image: "backgroundApply";
+  border-radius: 10px; 
+  -moz-border-radius: 10px; 
+  -webkit-border-radius: 10px; 
+  border: 2px solid #22C75E;
+}
+
+.applyTextTitle
+{
+  font-family: georgia, serif;
+  font-size: 22px;
+  color: #1782BF;
+  font-style: normal;
+  font-weight: bold;
+  font-variant: normal;
+  text-align: left;
+  letter-spacing: 1.4px;
+  line-height: 34px;
+}
+
+.applyText
+{
+  font-family: "lucida sans unicode", "lucida grande", sans-serif;
+  font-size: applyFontSize;
+  color: #146C87;
+}
+
+.applyTextBox
+{
+  color: #112780;
+  background-color: #EDF5FF;
+  border-radius: 7px;
+  font-family: georgia;
+  font-size: applyFontSize;
+}
+
+@external gwt-ListBox,gwt-DateBox,datePickerDay,datePickerWeekdayLabel,datePickerWeekendLabel;
+.gwt-DateBox
+{
+  color: #112780;
+  background-color: #EDF5FF;
+  border-radius: 7px;
+  font-family: georgia;
+  font-size: applyFontSize;
+}
+
+.gwt-ListBox
+{
+  font-size: applyFontSize;
+  font-family: georgia;
+  color: #112780;
+}
+
+.datePickerDay,
+.datePickerWeekdayLabel,
+.datePickerWeekendLabel 
+{
+  font-size: applyFontSize;
+  font-family: georgia;
+  color: #112780;
+}
+
+@external .gwt-PushButton-up,gwt-PushButton-up-hovering,gwt-PushButton-up-disabled,gwt-PushButton-down,gwt-PushButton-down-hovering,gwt-PushButton-down-disabled;
+.gwt-PushButton-up,
+.gwt-PushButton-up-hovering,
+.gwt-PushButton-up-disabled,
+.gwt-PushButton-down,
+.gwt-PushButton-down-hovering,
+.gwt-PushButton-down-disabled 
+{
+  font-family: verdana;
+  font-weight: bold;
+  color: #0C4152 !important;
+  font-size: 15px;
+  padding: 14px 24px;
+  -moz-border-radius: 22px;
+  -webkit-border-radius: 22px;
+  border-radius: 22px;
+  border: 2px solid #A36200;
+  background: #63B8EE;
+  background: linear-gradient(top,  #D17D00,  #FF9900);
+  background: -ms-linear-gradient(top,  #D17D00,  #FF9900);
+  background: -webkit-gradient(linear, left top, left bottom, from(#D17D00), to(#FF9900));
+  background: -moz-linear-gradient(top,  #D17D00,  #FF9900);
+}
+
+.gwt-PushButton-up-hovering
+{
+  background: #63B8EE;
+  background: linear-gradient(top,  #FF9900, #D17D00);
+  background: -ms-linear-gradient(top, #FF9900, #D17D00);
+  background: -webkit-gradient(linear, left top, left bottom, from(#FF9900), to(#D17D00));
+  background: -moz-linear-gradient(top,  #FF9900, #D17D00);
+}
+
+
+

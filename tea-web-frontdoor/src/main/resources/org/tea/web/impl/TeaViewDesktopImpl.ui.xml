@@ -1,0 +1,136 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" 
+             xmlns:gwt="urn:import:com.google.gwt.user.client.ui"
+             xmlns:dp="urn:import:com.google.gwt.user.datepicker.client">
+             
+  <ui:with field="resourceBundle" type="org.tea.web.data.DesktopResourceBundle"/>
+  <ui:with field="sizes" type="org.tea.web.data.DesktopSizes"/>
+  
+  <gwt:DockLayoutPanel unit="PX" styleName="{resourceBundle.css.background}">
+    <gwt:north size="{sizes.getTopPanelHeight}">
+      <gwt:LayoutPanel>
+        <gwt:layer left="{sizes.getLogoLeft}px" width="{resourceBundle.logo.getWidth}px" top="{sizes.getLogoTop}px" height="{resourceBundle.logo.getHeight}px">
+          <gwt:Image resource="{resourceBundle.logo}"/>
+        </gwt:layer>
+      </gwt:LayoutPanel>
+    </gwt:north>
+    
+    <gwt:north size="{resourceBundle.css.afterLogoHeight}">
+      <gwt:Label/>
+    </gwt:north>
+       
+    <gwt:north size="{resourceBundle.css.menuPanelHeight}">
+      <gwt:HorizontalPanel styleName="{resourceBundle.css.menuPanel}" spacing="{resourceBundle.css.menuItemSpacing}">  
+        <gwt:Label ui:field="welcomeTab" text="Welcome" styleName="{resourceBundle.css.tabSelected}"/>
+        <gwt:Label ui:field="servicesTab" text="Services" styleName="{resourceBundle.css.tabUnselected}"/>
+        <gwt:Label ui:field="programsTab" text="Programs" styleName="{resourceBundle.css.tabUnselected}"/>
+        <gwt:Label ui:field="applyTab" text="Tour" styleName="{resourceBundle.css.tabUnselected}"/>
+      </gwt:HorizontalPanel>
+    </gwt:north>
+    
+    <gwt:north size="{resourceBundle.css.afterMenuHeight}">
+      <gwt:Label/>
+    </gwt:north>
+    
+    <gwt:center> 
+      <gwt:LayoutPanel>
+		    <gwt:layer left="{resourceBundle.css.allLeft}px" top="{resourceBundle.css.allTop}px" right="{resourceBundle.css.allRight}px" bottom="0px">
+			    <gwt:DeckLayoutPanel ui:field="contentPanel">
+			      <gwt:ScrollPanel styleName="{resourceBundle.css.backgroundWelcome}">
+			       <gwt:HTML styleName="{resourceBundle.css.content}" HTML="{resourceBundle.welcomeText.getText}"/>
+			      </gwt:ScrollPanel>
+			      
+			      <gwt:HTML styleName="{resourceBundle.css.backgroundServices}" HTML="{resourceBundle.servicesText.getText}"/>
+			      <gwt:HTML styleName="{resourceBundle.css.backgroundPrograms}" HTML="{resourceBundle.programsText.getText}"/>
+			      
+			      <gwt:ScrollPanel styleName="{resourceBundle.css.backgroundApply}">
+				      <gwt:VerticalPanel styleName="{resourceBundle.css.content}" spacing="{resourceBundle.css.elementsVSpacing}"> 
+			          <gwt:HTML styleName="{resourceBundle.css.applyTextTitle}">
+			            You are welcome to register for the tour.<br/>Please complete and submit the following form.
+			          </gwt:HTML>
+			        	
+			        	<gwt:HorizontalPanel spacing="{resourceBundle.css.elementsHSpacing}">
+			        	  <gwt:Label styleName="{resourceBundle.css.applyText}" text="Child's last name:"/><gwt:TextBox styleName="{resourceBundle.css.applyTextBox}"/>
+			        	  <gwt:Label/>
+			        	  <gwt:Label styleName="{resourceBundle.css.applyText}" text="first name:"/><gwt:TextBox styleName="{resourceBundle.css.applyTextBox}"/>
+			        	  <gwt:Label/>
+                  <gwt:Label styleName="{resourceBundle.css.applyText}" text="middle name:"/><gwt:TextBox styleName="{resourceBundle.css.applyTextBox}"/>
+                  <gwt:Label styleName="{resourceBundle.css.applyText}" text="(optional)"/>
+			        	</gwt:HorizontalPanel>			      
+				        
+				        <gwt:HorizontalPanel spacing="{resourceBundle.css.elementsHSpacing}">
+				          <gwt:Label styleName="{resourceBundle.css.applyText}" text="Child's date of birth (MM/DD/YYYY):"/><dp:DateBox ui:field="dobPicker"/>
+				          <gwt:Label/><gwt:Label/>
+				          <gwt:RadioButton name="gender" styleName="{resourceBundle.css.applyText}">Boy</gwt:RadioButton>
+				          <gwt:Label styleName="{resourceBundle.css.applyText}" text="or"/>
+				          <gwt:RadioButton name="gender" styleName="{resourceBundle.css.applyText}">Girl</gwt:RadioButton>
+				        </gwt:HorizontalPanel>
+				        
+				        <gwt:HorizontalPanel spacing="{resourceBundle.css.elementsHSpacing}">
+                  <gwt:Label styleName="{resourceBundle.css.applyText}" text="Preferred start date (MM/DD/YYYY):"/><dp:DateBox ui:field="startPicker"/>
+                </gwt:HorizontalPanel>
+                
+                <gwt:HorizontalPanel spacing="{resourceBundle.css.elementsHSpacing}">
+                  <gwt:Label styleName="{resourceBundle.css.applyText}" text="Preferred days of week:"/>
+									<gwt:CheckBox styleName="{resourceBundle.css.applyText}" value="true" text="Monday"/>
+									<gwt:CheckBox styleName="{resourceBundle.css.applyText}" value="true" text="Tuesday"/>
+									<gwt:CheckBox styleName="{resourceBundle.css.applyText}" value="true" text="Wednesday"/>
+									<gwt:CheckBox styleName="{resourceBundle.css.applyText}" value="true" text="Thursday"/>
+									<gwt:CheckBox styleName="{resourceBundle.css.applyText}" value="true" text="Friday"/>
+                </gwt:HorizontalPanel>
+                
+                <gwt:HorizontalPanel spacing="{resourceBundle.css.elementsHSpacing}">
+                  <gwt:RadioButton ui:field="isFullDay" name="isFullDay" styleName="{resourceBundle.css.applyText}" value="true">Full day</gwt:RadioButton>
+                  <gwt:Label styleName="{resourceBundle.css.applyText}" text="or"/>
+                  <gwt:RadioButton ui:field="isHalfDay" name="isFullDay" styleName="{resourceBundle.css.applyText}">Half day</gwt:RadioButton>
+                  
+                  <gwt:HorizontalPanel ui:field="isMorningPanel" spacing="{resourceBundle.css.elementsHSpacing}" visible="false">
+	                  <gwt:RadioButton name="isMorning" styleName="{resourceBundle.css.applyText}" value="true">From 8:30 AM to 1:00 PM</gwt:RadioButton>
+	                  <gwt:Label styleName="{resourceBundle.css.applyText}" text="or"/>
+	                  <gwt:RadioButton name="isMorning" styleName="{resourceBundle.css.applyText}">From 3:00 PM to 6 PM</gwt:RadioButton>
+                  </gwt:HorizontalPanel>
+                </gwt:HorizontalPanel>
+                
+                <gwt:HorizontalPanel spacing="{resourceBundle.css.elementsHSpacing}">
+                  <gwt:Label styleName="{resourceBundle.css.applyText}" text="Group applying for:"/>
+                  <gwt:RadioButton name="groupType" styleName="{resourceBundle.css.applyText}" value="true" text="Any available"/>
+                  <gwt:RadioButton name="groupType" styleName="{resourceBundle.css.applyText}" text="English"/>
+                  <gwt:RadioButton name="groupType" styleName="{resourceBundle.css.applyText}" text="Russian"/>
+                </gwt:HorizontalPanel>
+                
+                <gwt:HorizontalPanel spacing="{resourceBundle.css.elementsHSpacing}">
+                  <gwt:Label styleName="{resourceBundle.css.applyText}" text="Did your child previously attended any day care?"/>
+                  <gwt:RadioButton name="groupType" styleName="{resourceBundle.css.applyText}" text="Yes"/>
+                  <gwt:RadioButton name="groupType" styleName="{resourceBundle.css.applyText}" text="No"/>
+                </gwt:HorizontalPanel>
+                
+                <gwt:HorizontalPanel spacing="{resourceBundle.css.elementsHSpacing}">
+                  <gwt:Label styleName="{resourceBundle.css.applyText}" text="Parent's last name:"/><gwt:TextBox styleName="{resourceBundle.css.applyTextBox}"/>
+                  <gwt:Label/>
+                  <gwt:Label styleName="{resourceBundle.css.applyText}" text="first name:"/><gwt:TextBox styleName="{resourceBundle.css.applyTextBox}"/>
+                  <gwt:Label/>
+                  <gwt:Label styleName="{resourceBundle.css.applyText}" text="middle name:"/><gwt:TextBox styleName="{resourceBundle.css.applyTextBox}"/>
+                  <gwt:Label styleName="{resourceBundle.css.applyText}" text="(optional)"/>
+                </gwt:HorizontalPanel>  
+					      
+					      <gwt:HorizontalPanel spacing="{resourceBundle.css.elementsHSpacing}">
+	                <gwt:Label styleName="{resourceBundle.css.applyText}" text="How did you hear about us?"/><gwt:TextBox width="400px" styleName="{resourceBundle.css.applyTextBox}"/>
+	              </gwt:HorizontalPanel>
+	              <gwt:Label/>
+	              <gwt:HorizontalPanel spacing="{resourceBundle.css.elementsHSpacing}">
+	                <gwt:Label/><gwt:Label/>
+	                <gwt:PushButton text="Submit the tour application"/>
+	              </gwt:HorizontalPanel>
+	              
+					    </gwt:VerticalPanel>
+			      </gwt:ScrollPanel>
+			    </gwt:DeckLayoutPanel>
+			  </gwt:layer>
+	    </gwt:LayoutPanel>
+    </gwt:center>
+    
+    <gwt:south size="{resourceBundle.css.allBottom}">
+      <gwt:Label/>
+    </gwt:south> 
+  </gwt:DockLayoutPanel>  
+</ui:UiBinder>
