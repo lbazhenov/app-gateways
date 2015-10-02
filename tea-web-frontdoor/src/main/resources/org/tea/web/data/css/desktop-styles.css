@@ -12,6 +12,7 @@
 @def menuItemSpacing 10px;
 @def afterMenuHeight 0px;
 @def contentMargin 25px;
+@def contentBorderColor #AEA1BF;
 @def elementsVSpacing 15px;
 @def elementsHSpacing 10px;
 @def applyFontSize 17px;
@@ -19,7 +20,6 @@
 /*
   Root canvas settings
 */
-#external strong;
 strong
 {
   font-size: 18px;
@@ -28,9 +28,9 @@ strong
   text-decoration: underline;
 }
 
-@sprite .background
+.background
 {
-  gwt-image: "background";
+  background-color: #EBFFAA;
 }
 
 .content
@@ -111,13 +111,13 @@ strong
 /*
   Welcome tab settings
 */
-@sprite .backgroundWelcome
+.backgroundWelcome
 {
-  gwt-image: "backgroundWelcome";
+  background-color: #D6F5FF;
   border-radius: 10px; 
   -moz-border-radius: 10px; 
   -webkit-border-radius: 10px; 
-  border: 2px solid #22C75E;
+  border: 2px solid contentBorderColor;
 }
 
 @external textWelcome, h2Welcome;
@@ -146,34 +146,34 @@ strong
 /*
   Services tab settings
 */
-@sprite .backgroundServices
+.backgroundServices
 {
-  gwt-image: "backgroundServices";
+  background-color: #FFFAA1;
   border-radius: 10px; 
   -moz-border-radius: 10px; 
   -webkit-border-radius: 10px; 
-  border: 2px solid #22C75E;
+  border: 2px solid contentBorderColor;
 }
 
-@sprite .backgroundPrograms
+.backgroundPrograms
 {
-  gwt-image: "backgroundPrograms";
+  background-color: #F0E6FA;
   border-radius: 10px; 
   -moz-border-radius: 10px; 
   -webkit-border-radius: 10px; 
-  border: 2px solid #22C75E;
+  border: 2px solid contentBorderColor;
 }
 
 /*
   Apply tab settings
 */
-@sprite .backgroundApply
+.backgroundApply
 {
-  gwt-image: "backgroundApply";
+  background-color: #D1FFE0;
   border-radius: 10px; 
   -moz-border-radius: 10px; 
   -webkit-border-radius: 10px; 
-  border: 2px solid #22C75E;
+  border: 2px solid contentBorderColor;
 }
 
 .applyTextTitle
