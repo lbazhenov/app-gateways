@@ -8,15 +8,25 @@
   
   <gwt:DockLayoutPanel unit="PX" styleName="{resourceBundle.css.background}">
     <gwt:north size="{sizes.getTopPanelHeight}">
-      <gwt:LayoutPanel>
-        <gwt:layer left="{sizes.getLogoLeft}px" width="{resourceBundle.logo.getWidth}px" top="{sizes.getLogoTop}px" height="{resourceBundle.logo.getHeight}px">
+      <gwt:DockLayoutPanel unit="PX" styleName="{resourceBundle.css.topPanel}">
+        <gwt:west size="{sizes.getLogoCanvasWidth}" >
           <gwt:Image resource="{resourceBundle.logo}"/>
-        </gwt:layer>
-      </gwt:LayoutPanel>
-    </gwt:north>
-    
-    <gwt:north size="{resourceBundle.css.afterLogoHeight}">
-      <gwt:Label/>
+        </gwt:west>
+        
+        <gwt:center>
+          <gwt:Image resource="{resourceBundle.topBanner}"/>
+        </gwt:center>
+        
+        <gwt:east size="{resourceBundle.css.addressWidth}">
+          <gwt:HTML styleName="{resourceBundle.css.address}">
+            827 Independence Ave<br/>
+            Mountain View, CA 94043<br/><br/>       
+            tel: (650) 518 7777<br/>
+            fax: (650) 518 7779<br/>
+            email: <a href="mailto:ContactUs@TinyEinstein.org" target="_top">ContactUs@TinyEinstein.org</a>
+          </gwt:HTML>        
+        </gwt:east>
+      </gwt:DockLayoutPanel>
     </gwt:north>
        
     <gwt:north size="{resourceBundle.css.menuPanelHeight}">
@@ -24,7 +34,7 @@
         <gwt:Label ui:field="welcomeTab" text="Welcome" styleName="{resourceBundle.css.tabSelected}"/>
         <gwt:Label ui:field="servicesTab" text="Services" styleName="{resourceBundle.css.tabUnselected}"/>
         <gwt:Label ui:field="programsTab" text="Programs" styleName="{resourceBundle.css.tabUnselected}"/>
-        <gwt:Label ui:field="applyTab" text="Tour" styleName="{resourceBundle.css.tabUnselected}"/>
+        <gwt:Label ui:field="applyTab" text="Tour" styleName="{resourceBundle.css.tabUnselected}" visible="false"/>
       </gwt:HorizontalPanel>
     </gwt:north>
     
@@ -40,8 +50,13 @@
 			       <gwt:HTML styleName="{resourceBundle.css.content}" HTML="{resourceBundle.welcomeText.getText}"/>
 			      </gwt:ScrollPanel>
 			      
-			      <gwt:HTML styleName="{resourceBundle.css.backgroundServices}" HTML="{resourceBundle.servicesText.getText}"/>
-			      <gwt:HTML styleName="{resourceBundle.css.backgroundPrograms}" HTML="{resourceBundle.programsText.getText}"/>
+			      <gwt:ScrollPanel styleName="{resourceBundle.css.backgroundServices}">
+			       <gwt:HTML styleName="{resourceBundle.css.content}" HTML="{resourceBundle.servicesText.getText}"/>
+			      </gwt:ScrollPanel> 
+			      
+			      <gwt:ScrollPanel styleName="{resourceBundle.css.backgroundPrograms}">
+			       <gwt:HTML styleName="{resourceBundle.css.content}" HTML="{resourceBundle.programsText.getText}"/>
+			      </gwt:ScrollPanel>
 			      
 			      <gwt:ScrollPanel styleName="{resourceBundle.css.backgroundApply}">
 				      <gwt:VerticalPanel styleName="{resourceBundle.css.content}" spacing="{resourceBundle.css.elementsVSpacing}"> 
@@ -84,9 +99,13 @@
                   <gwt:Label styleName="{resourceBundle.css.applyText}" text="or"/>
                   <gwt:RadioButton ui:field="isHalfDay" name="isFullDay" styleName="{resourceBundle.css.applyText}">Half day</gwt:RadioButton>
                   
-                  <gwt:HorizontalPanel ui:field="isMorningPanel" spacing="{resourceBundle.css.elementsHSpacing}" visible="false">
+                  <gwt:HorizontalPanel ui:field="isMorningPanel" visible="false">
+                    <gwt:Label width="{resourceBundle.css.applyLabelHSpacing}"/>
+                    <gwt:Label width="{resourceBundle.css.applyLabelHSpacing}"/>
 	                  <gwt:RadioButton name="isMorning" styleName="{resourceBundle.css.applyText}" value="true">From 8:30 AM to 1:00 PM</gwt:RadioButton>
+	                  <gwt:Label width="{resourceBundle.css.applyLabelHSpacing}"/>
 	                  <gwt:Label styleName="{resourceBundle.css.applyText}" text="or"/>
+	                  <gwt:Label width="{resourceBundle.css.applyLabelHSpacing}"/>
 	                  <gwt:RadioButton name="isMorning" styleName="{resourceBundle.css.applyText}">From 3:00 PM to 6 PM</gwt:RadioButton>
                   </gwt:HorizontalPanel>
                 </gwt:HorizontalPanel>
@@ -112,14 +131,21 @@
                   <gwt:Label styleName="{resourceBundle.css.applyText}" text="middle name:"/><gwt:TextBox styleName="{resourceBundle.css.applyTextBox}"/>
                   <gwt:Label styleName="{resourceBundle.css.applyText}" text="(optional)"/>
                 </gwt:HorizontalPanel>  
-					      
+
+                <gwt:HorizontalPanel spacing="{resourceBundle.css.elementsHSpacing}">
+                  <gwt:Label styleName="{resourceBundle.css.applyText}" text="Parent's email address:"/>
+                  <gwt:TextBox styleName="{resourceBundle.css.applyTextBox}" visibleLength="32"/>
+                  <gwt:Label/>
+                  <gwt:Label styleName="{resourceBundle.css.applyText}" text="(note, this address will be used for communication)"/>
+                </gwt:HorizontalPanel>  
+                					      
 					      <gwt:HorizontalPanel spacing="{resourceBundle.css.elementsHSpacing}">
 	                <gwt:Label styleName="{resourceBundle.css.applyText}" text="How did you hear about us?"/><gwt:TextBox width="400px" styleName="{resourceBundle.css.applyTextBox}"/>
 	              </gwt:HorizontalPanel>
 	              <gwt:Label/>
 	              <gwt:HorizontalPanel spacing="{resourceBundle.css.elementsHSpacing}">
 	                <gwt:Label/><gwt:Label/>
-	                <gwt:PushButton text="Submit the tour application"/>
+	                <gwt:PushButton ui:field="tourApplicationSubmit" text="Submit the tour application"/>
 	              </gwt:HorizontalPanel>
 	              
 					    </gwt:VerticalPanel>

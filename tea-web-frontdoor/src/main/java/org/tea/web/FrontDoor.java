@@ -15,7 +15,6 @@ public class FrontDoor implements EntryPoint
     
     teaPresenter.setView (teaDesktopView);
     
-
     RootLayoutPanel.get().add(teaDesktopView);
   }
 }

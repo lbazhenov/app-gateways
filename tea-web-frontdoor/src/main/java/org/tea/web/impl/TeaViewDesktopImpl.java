@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.MouseOverEvent;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.i18n.client.DateTimeFormat;
@@ -16,11 +17,13 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.DeckLayoutPanel;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.PushButton;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.user.datepicker.client.DateBox;
 
 import org.tea.web.TeaPresenter;
 import org.tea.web.TeaView;
+import org.tea.web.TourApplication;
 import org.tea.web.data.DesktopResourceBundle;
 import org.tea.web.data.DesktopSizes;
 import org.tea.web.util.FadeAnimation;
@@ -57,6 +60,8 @@ public class TeaViewDesktopImpl extends Composite implements TeaView
   FadeAnimation         isMorningPanelAnimation;
   @UiField CheckBox     isFullDay;
   @UiField CheckBox     isHalfDay;
+  
+  @UiField PushButton   tourApplicationSubmit;
    
   public TeaViewDesktopImpl()
   {
@@ -101,7 +106,16 @@ public class TeaViewDesktopImpl extends Composite implements TeaView
   {
     this.presenter = presenter;
   }
-    
+  
+  public TourApplication createTourApplication()
+  {
+    return null;
+  }  
+  
+  /*
+   * Event handlers 
+   */
+  
   @UiHandler({"welcomeTab", "servicesTab", "programsTab", "applyTab"})
   void onMouseOver(MouseOverEvent event) 
   {
@@ -166,5 +180,19 @@ public class TeaViewDesktopImpl extends Composite implements TeaView
     }
   }
   
-  
+  @UiHandler ({"tourApplicationSubmit"})
+  void onClick(ClickEvent event) 
+  {
+    try
+    {
+      if (event.getSource() == tourApplicationSubmit)
+      {
+        presenter.applicationSubmitted(createTourApplication());
+      }
+    }
+    catch (Exception exp)
+    {
+      // Wrong UI object is selected, hence ignore it
+    }
+  }
 }

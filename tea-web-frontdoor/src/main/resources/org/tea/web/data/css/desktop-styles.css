@@ -5,7 +5,10 @@
 @def allTop 10px;
 @def allRight 10px;
 @def allBottom 10px;
-@def afterLogoHeight 20px;
+@def afterTopPanelHeight 20px;
+@def topPanelSpacing 40px;
+@def addressWidth 300px;
+@def addressHeight 250px;
 @def menuPanelHeight 80px;
 @def menuItemHeight 60px;
 @def menuItemWidth 150px;
@@ -16,6 +19,7 @@
 @def elementsVSpacing 15px;
 @def elementsHSpacing 10px;
 @def applyFontSize 17px;
+@def applyLabelHSpacing 20px;
 
 /*
   Root canvas settings
@@ -25,7 +29,6 @@ strong
   font-size: 18px;
   font-weight: bold;
   font-variant: small-caps;
-  text-decoration: underline;
 }
 
 .background
@@ -36,6 +39,34 @@ strong
 .content
 {
   margin: contentMargin;
+}
+
+/*
+  Top panel settings
+*/
+.topPanel
+{
+  margin: allTop allRight afterTopPanelHeight allLeft;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.topElement
+{
+  margin: 40px;
+}
+
+.address
+{  
+  font-family: arial, sans-serif;
+  font-size: 17px;
+  color: #146C87;
+  font-style: italic;
+  font-weight: bold;
+  font-variant: normal;
+  text-align: left;
+  letter-spacing: 0px;
+  line-height: 20px;
+  background-color: rgba(255, 255, 255, 0);
 }
 
 /*
@@ -113,7 +144,7 @@ strong
 */
 .backgroundWelcome
 {
-  background-color: #D6F5FF;
+  background-color: #FFFFCC;
   border-radius: 10px; 
   -moz-border-radius: 10px; 
   -webkit-border-radius: 10px; 
@@ -155,6 +186,32 @@ strong
   border: 2px solid contentBorderColor;
 }
 
+@external textServices, h2Services;
+
+.h2Services
+{
+  font-family: "lucida sans unicode", "lucida grande", sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+  color: #0C4152;
+}
+
+.textServices
+{
+  font-family: "lucida sans unicode", "lucida grande", sans-serif;
+  font-size: 17px;
+  color: #146C87;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-align: justify;
+  letter-spacing: 0px;
+  line-height: 25px;
+}
+
+/*
+  Programs tab settings
+*/
 .backgroundPrograms
 {
   background-color: #F0E6FA;
@@ -162,6 +219,33 @@ strong
   -moz-border-radius: 10px; 
   -webkit-border-radius: 10px; 
   border: 2px solid contentBorderColor;
+}
+
+@external textPrograms,footerPrograms;
+
+.textPrograms
+{
+  font-family: "lucida sans unicode", "lucida grande", sans-serif;
+  font-size: 17px;
+  color: #146C87;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-align: justify;
+  letter-spacing: 0px;
+  line-height: 25px;
+}
+
+.footerPrograms
+{
+  font-family: "lucida sans unicode", "lucida grande", sans-serif;
+  font-size: 14px;
+  color: #146C87;
+  font-style: italic;
+  font-weight: normal;
+  font-variant: normal;
+  text-align: justify;
+  letter-spacing: 0px;
 }
 
 /*

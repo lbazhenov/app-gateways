@@ -13,6 +13,9 @@ public interface DesktopResourceBundle extends ClientBundle
   @Source("images/logo.png")
   ImageResource logo();
   
+  @Source("images/TopBanner.png")
+  ImageResource topBanner();
+  
   @Source("css/desktop-styles.css")
   DesktopStyles css ();
   

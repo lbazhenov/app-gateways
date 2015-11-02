@@ -9,7 +9,10 @@ public interface DesktopStyles extends CssResource
   int allRight();
   int allBottom();
   
-  int afterLogoHeight();
+  int afterTopPanelHeight();
+  int topPanelSpacing();
+  int addressWidth();
+  int addressHeight();
   int menuPanelHeight();
   int menuItemWidth();
   int menuItemSpacing();
@@ -20,6 +23,9 @@ public interface DesktopStyles extends CssResource
   int applyFontSize();
   
   String background();
+  String topPanel();
+  String topElement();
+  String address();
   String menuPanel();
   String tabSelected();
   String tabUnselected();
@@ -33,4 +39,5 @@ public interface DesktopStyles extends CssResource
   String applyTextTitle();
   String applyText();
   String applyTextBox();
+  String applyLabelHSpacing();
 }

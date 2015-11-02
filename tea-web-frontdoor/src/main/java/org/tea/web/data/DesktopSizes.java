@@ -6,15 +6,16 @@ public class DesktopSizes
   static final double WIDTH_FACTOR = 0.25;
   static final double SPACE_FACTOR = 0.2;
   
-  private int   topPanelHeight;
-  private int   logoLeft, logoTop, logo2Left;
+  private DesktopResourceBundle resourceBundle;
   
   public DesktopSizes (DesktopResourceBundle resourceBundle)
   {
-    logoLeft = resourceBundle.css().allLeft();
-    logoTop = resourceBundle.css().allTop();
-    
-    topPanelHeight = resourceBundle.logo().getHeight() + 2*resourceBundle.css().allTop();
+    this.resourceBundle = resourceBundle;
+  }
+  
+  public int getLogoCanvasWidth ()
+  {
+    return resourceBundle.logo().getWidth() + resourceBundle.css().topPanelSpacing();
   }
 
   public static int calcHeightByFontSize (int fontSize)
@@ -29,22 +30,8 @@ public class DesktopSizes
 
   public int getTopPanelHeight()
   {
-    return topPanelHeight;
-  }
-
-  public int getLogoLeft()
-  {
-    return logoLeft;
-  }
-
-  public int getLogoTop()
-  {
-    return logoTop;
-  }
-
-  public int getLogo2Left()
-  {
-    return logo2Left;
+    return Math.max(resourceBundle.logo().getHeight(),resourceBundle.topBanner().getHeight()) + 
+             resourceBundle.css().allTop() + resourceBundle.css().afterTopPanelHeight();
   }
 
 }
