@@ -13,6 +13,7 @@ public interface DesktopStyles extends CssResource
   int topPanelSpacing();
   int addressWidth();
   int addressHeight();
+  int anouncementPanelHeight();
   int menuPanelHeight();
   int menuItemWidth();
   int menuItemSpacing();

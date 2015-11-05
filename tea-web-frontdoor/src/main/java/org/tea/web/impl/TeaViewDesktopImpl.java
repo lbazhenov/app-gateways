@@ -75,8 +75,7 @@ public class TeaViewDesktopImpl extends Composite implements TeaView
     // Select welcome content
     currentTab = welcomeTab;
     contentPanel.showWidget(0);
-    
-    contentPanel.animate(500);
+    contentPanel.setAnimationDuration(1000);
     
     resourceBundle.css().ensureInjected();
     
@@ -141,8 +140,6 @@ public class TeaViewDesktopImpl extends Composite implements TeaView
         
         currentTab = selectedTab;
         contentPanel.showWidget(tabIndex);
-        
-        contentPanel.animate(1000);
       }
     }
   }

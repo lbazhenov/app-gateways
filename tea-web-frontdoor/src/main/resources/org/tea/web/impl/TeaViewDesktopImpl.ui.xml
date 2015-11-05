@@ -28,6 +28,14 @@
         </gwt:east>
       </gwt:DockLayoutPanel>
     </gwt:north>
+    
+    <gwt:north size="{resourceBundle.css.anouncementPanelHeight}">
+      <gwt:HTML>
+        <div class="grandOpening" >Grand opening! Now enrolling!</div>
+        <div class="tour" >Please call or email us to schedule a tour.</div>
+      </gwt:HTML>
+    </gwt:north>
+    
        
     <gwt:north size="{resourceBundle.css.menuPanelHeight}">
       <gwt:HorizontalPanel styleName="{resourceBundle.css.menuPanel}" spacing="{resourceBundle.css.menuItemSpacing}">  

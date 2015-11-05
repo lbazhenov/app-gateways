@@ -6,8 +6,8 @@
 @def allRight 10px;
 @def allBottom 10px;
 @def afterTopPanelHeight 20px;
-@def topPanelSpacing 40px;
-@def addressWidth 300px;
+@def topPanelSpacing 20px;
+@def addressWidth 320px;
 @def addressHeight 250px;
 @def menuPanelHeight 80px;
 @def menuItemHeight 60px;
@@ -32,8 +32,8 @@ strong
 }
 
 .background
-{
-  background-color: #EBFFAA;
+{ 
+  background-color: #EBFFAA;  
 }
 
 .content
@@ -67,7 +67,44 @@ strong
   letter-spacing: 0px;
   line-height: 20px;
   background-color: rgba(255, 255, 255, 0);
+  margin:0 0 0 topPanelSpacing;
 }
+
+@external grandOpening, tour, daySelect;
+@def anouncementPanelHeight 100px;
+@def emColor #FF4A6E;
+
+.grandOpening
+{
+  font-family: "palatino linotype", palatino, serif;
+  font-size: 42px;
+  color: emColor;
+  font-style: normal;
+  font-weight: bold;
+  font-variant: normal;
+  text-align: center;
+  letter-spacing: 1px;
+  line-height: 50px;
+}
+
+.tour
+{
+  font-family: arial, sans-serif;
+  font-size: 20px;
+  color: #707AFF;
+  font-style: normal;
+  font-weight: bold;
+  font-variant: normal;
+  text-align: center;
+  letter-spacing: 0px;
+  line-height: 27px;
+}
+
+.daySelect
+{
+  color: emColor;  
+}
+
 
 /*
   Menu panel settings
